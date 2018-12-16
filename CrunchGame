@@ -203,8 +203,9 @@ public class CrunchGame
                     break;               
                 }
             }
+            clearScreen();
             int stickMulti = 21;int remover= 0;
-            while(stickMulti > 0){
+            while(stickMulti > 1){
                 if(turnChooser%2==1)
                 {
                     System.out.println("Your turn");
@@ -262,6 +263,61 @@ public class CrunchGame
                     clearScreen();
                 }
             }
+            while(stickMulti==1){
+                if(turnChooser%2==1)
+                {
+                    System.out.println("Your turn");
+                    sleep(1000);
+                    System.out.println("This is what the board looks like!");
+                    printSticks(stickMulti);
+                    sleep(500);
+                    System.out.println("There is " + stickMulti + " stick");
+                    System.out.println();
+                    sleep(500);
+                    boolean val=true;
+                    int removerChecker= 0;
+                    do{
+                        Scanner scan = new Scanner(System.in);
+                        System.out.println("Would you like to remove 1 stick? (1)");
+                        try{
+                            removerChecker = scan.nextInt();
+                            if(removerChecker==1){
+                                remover = removerChecker;
+                                val = false;
+                            }else{
+                                val=true;
+                            }                            
+                        }catch(InputMismatchException ex){
+                            val = true;
+                        }                          
+                    }while(val);                    
+                    stickMulti -= remover;
+                    turnChooser ++;
+                    sleep(500);
+                    clearScreen();
+                }else if(turnChooser%2==0){
+                    sleep(500);
+                    System.out.println("My turn");
+                    sleep(500);
+                    System.out.println("This is what the board looks like!");
+                    printSticks(stickMulti);
+                    sleep(1000);
+                    System.out.println("There is " + stickMulti + " stick");
+                    System.out.println();
+                    sleep(500);
+                    if(stickMulti%2==1){
+                        remover = 2;
+                        System.out.println("I'm going to remove 1 stick!");
+                    }else{
+                        remover = 1;
+                        System.out.println("I'm going to remove 1 stick!");
+                    }          
+                    stickMulti -= remover;
+                    turnChooser ++;
+                    sleep(1000);
+                    clearScreen();
+                }
+            }
             if(turnChooser%2==1){
                 System.out.println("You win!");
                 winCounter++;
@@ -269,26 +325,32 @@ public class CrunchGame
                 System.out.println("I win");
                 loseCounter++;
             }
-            System.out.println("Would you like to play again? (yes/no)");
-            playAgain = input.next();           
+            do{
+                System.out.println("Would you like to play again? (yes/no)");
+                playAgain = input.next();
+                if(playAgain.equalsIgnoreCase("no")){
+                    break;
+                }
+            }while(!(playAgain.equalsIgnoreCase("yes")) || !(playAgain.equalsIgnoreCase("no")));
         }while(playAgain.equalsIgnoreCase("yes"));
         System.out.println("You won " + winCounter+ " times");
         System.out.println("You lost " + loseCounter+ " times");
         System.out.println("See you");
     }
+
     public static void main(String[]args){
         Scanner input = new Scanner(System.in);
         String turnChoice = "";
         while((!(turnChoice.equalsIgnoreCase("single")) || (!(turnChoice.equalsIgnoreCase("multi"))))){
-                System.out.println("Do you want to play single player or multiplayer? (single/multi)");
-                turnChoice = input.nextLine();
-                if(turnChoice.equalsIgnoreCase("single")){
-                    gameVsCPU();
-                    break;
-                }else if(turnChoice.equalsIgnoreCase("multi")){
-                    gameVsPlayer();
-                    break;               
-                }
+            System.out.println("Do you want to play single player or multiplayer? (single/multi)");
+            turnChoice = input.nextLine();
+            if(turnChoice.equalsIgnoreCase("single")){
+                gameVsCPU();
+                break;
+            }else if(turnChoice.equalsIgnoreCase("multi")){
+                gameVsPlayer();
+                break;               
             }
+        }
     }
 }
