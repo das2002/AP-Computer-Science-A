@@ -1,0 +1,269 @@
+import java.util.Random;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+public class CrunchGame
+{
+    public static int chooseTurn(int num){
+        if(num==1){
+            return 1;
+        }
+        else if(num==2){
+            return 2;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    public static void gameVsPlayer(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to CRUNCH!");
+        sleep(1000);
+        int winCounter =0 ;
+        int loseCounter =0;
+        System.out.println("How to play");
+        sleep(500);
+        System.out.println("There are 21 sticks in the croc's mouth."); 
+        System.out.println("Whoever pulls the last stick, the croc will eat your arm."); 
+        System.out.println("So, choose wisely."); 
+        System.out.println("You can choose either 1 or 2 sticks to remove for each turn.");
+        String turnChoice = "some random string";
+        String user1 = "";
+        String user2 = "";
+        System.out.println("What is Player 1's name?");
+        user1=input.next();
+        String playAgain = "";
+        System.out.println("What is Player 2's name?");
+        user2= input.next();
+        do{
+            System.out.println("I'm going to flip a coin to see who goes first.");
+            int turnChooser = 0;
+            String headsOrTails = "";
+            int coinFace = (int) (Math.random() * 2);;
+            int faceChoice = 0;
+            while((!(headsOrTails.equalsIgnoreCase("heads")) || (!(headsOrTails.equalsIgnoreCase("tails"))))){
+                System.out.println(user1 +" I want you to calls heads or tails (heads/tails)");
+                headsOrTails = input.nextLine();
+                if(headsOrTails.equalsIgnoreCase("heads")){
+                    faceChoice = 0;
+                    break;
+                }else if(turnChoice.equalsIgnoreCase("tails")){
+                    faceChoice = 1;
+                    break;               
+                }
+            }            
+            if(faceChoice == coinFace){
+                System.out.println(user1 + " goes first");
+                turnChooser = 1;
+            }else{
+                System.out.println(user2 + " goes first");
+                turnChooser = 2;
+            }
+            int stickMulti = 21;int remover= 0;
+            while(stickMulti > 0){
+                if(turnChooser%2==1)
+                {
+                    System.out.println(user1 + "'s turn");
+                    System.out.println("This is what the board looks like!");
+                    printSticks(stickMulti);
+                    sleep(500);
+                    System.out.println("There are " + stickMulti + " sticks");
+                    System.out.println();
+                    sleep(500);
+                    boolean val=true;
+                    int removerChecker= 0;
+                    do{
+                        Scanner scan = new Scanner(System.in);
+                        System.out.println("Would you like to remove 1 or 2 sticks? (1/2)");
+                        try{
+                            removerChecker = scan.nextInt();
+                            if(removerChecker==1){
+                                remover = removerChecker;
+                                val = false;
+                            }else if(removerChecker == 2){
+                                remover = removerChecker;
+                                val = false;
+                            }else{
+                                val=true;
+                            }                            
+                        }catch(InputMismatchException ex){
+                            val = true;
+                        }                          
+                    }while(val);                    
+                    stickMulti -= remover;
+                    turnChooser ++;
+                    sleep(500);
+                    clearScreen();
+                }else if(turnChooser%2==0){
+                    System.out.println(user2 + "'s turn");
+                    System.out.println("This is what the board looks like!");
+                    printSticks(stickMulti);
+                    sleep(500);
+                    System.out.println("There are " + stickMulti + " sticks");
+                    System.out.println();
+                    sleep(500);
+                    boolean val=true;
+                    int removerChecker= 0;
+                    do{
+                        Scanner scan = new Scanner(System.in);
+                        System.out.println("Would you like to remove 1 or 2 sticks? (1/2)");
+                        try{
+                            removerChecker = scan.nextInt();
+                            if(removerChecker==1){
+                                remover = removerChecker;
+                                val = false;
+                            }else if(removerChecker == 2){
+                                remover = removerChecker;
+                                val = false;
+                            }else{
+                                val=true;
+                            }                            
+                        }catch(InputMismatchException ex){
+                            val = true;
+                        }                          
+                    }while(val);                    
+                    stickMulti -= remover;
+                    turnChooser ++;
+                    sleep(500);
+                    clearScreen();
+                }
+
+            }
+            if(turnChooser%2==1){
+                System.out.println(user1 + " wins!");
+                winCounter++;
+            }else{
+                System.out.println(user2+ " wins");
+                loseCounter++;
+            }
+            System.out.println("Would you like to play again? (yes/no)");
+            playAgain = input.next();    
+        }while(playAgain.equalsIgnoreCase("yes"));
+        System.out.println(user1 + " won " + winCounter+ " times");
+        System.out.println(user2 +" won " + loseCounter+ " times");
+        System.out.println("See you");
+    }  
+
+    public static void printSticks(int stickMulti)
+    {
+        for(int i =0; i<stickMulti; i++){
+            System.out.print('|');
+        }
+        System.out.println("");
+    }
+
+    private static void clearScreen(){
+        System.out.print('\u000C');
+    }
+
+    public static boolean playAgain(){
+        String response= "rand";
+        while((!(response.equalsIgnoreCase("yes"))) || (!(response.equalsIgnoreCase("no")))){
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Would you like to play again? (yes/no)");
+            response = scan.nextLine();
+        }
+        if(response.equalsIgnoreCase("yes")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static void sleep(int time){
+        try{
+            Thread.sleep(time);
+        }catch(Exception e){        }
+    }
+
+    public static void gameVsCPU(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to CRUNCH!");
+        sleep(1000);
+        int winCounter =0 ;
+        int loseCounter =0;
+        System.out.println("How to play");
+        sleep(500);
+        int turnChooser = 0;
+        System.out.println("There are 21 sticks in the croc's mouth."); 
+        System.out.println("Whoever pulls the last stick, the croc will eat your arm."); 
+        System.out.println("So, choose wisely."); 
+        System.out.println("You can choose either 1 or 2 sticks to remove for each turn.");
+        String turnChoice = "some random string";
+        String playAgain = "";
+        do{
+            while((!(turnChoice.equalsIgnoreCase("first")) || (!(turnChoice.equalsIgnoreCase("second"))))){
+                System.out.println("Would you like to go first or second? (first/second)");
+                turnChoice = input.nextLine();
+                if(turnChoice.equalsIgnoreCase("first")){
+                    turnChooser = 1;
+                    break;
+                }else if(turnChoice.equalsIgnoreCase("second")){
+                    turnChooser = 2;
+                    break;               
+                }
+            }
+            int stickMulti = 21;int remover= 0;
+            while(stickMulti > 0){
+                if(turnChooser%2==1)
+                {
+                    System.out.println("Your turn");
+                    System.out.println("This is what the board looks like!");
+                    printSticks(stickMulti);
+                    sleep(500);
+                    System.out.println("There are " + stickMulti + " sticks");
+                    System.out.println();
+                    sleep(500);
+                    boolean val=true;
+                    int removerChecker= 0;
+                    do{
+                        Scanner scan = new Scanner(System.in);
+                        System.out.println("Would you like to remove 1 or 2 sticks? (1/2)");
+                        try{
+                            removerChecker = scan.nextInt();
+                            if(removerChecker==1){
+                                remover = removerChecker;
+                                val = false;
+                            }else if(removerChecker == 2){
+                                remover = removerChecker;
+                                val = false;
+                            }else{
+                                val=true;
+                            }                            
+                        }catch(InputMismatchException ex){
+                            val = true;
+                        }                          
+                    }while(val);                    
+                    stickMulti -= remover;
+                    turnChooser ++;
+                    sleep(500);
+                    clearScreen();
+                }else if(turnChooser%2==0){
+                    System.out.println("My turn");
+                    System.out.println("This is what the board looks like!");
+                    printSticks(stickMulti);
+                    sleep(500);
+                    System.out.println("There are " + stickMulti + " sticks");
+                    System.out.println();
+                    sleep(500);
+                    if(stickMulti%2==1){
+                        remover = 2;
+                    }else{
+                        remover = 1;
+                    }          
+                    stickMulti -= remover;
+                    turnChooser ++;
+                    sleep(500);
+                    clearScreen();
+                }
+            }
+            System.out.println("Would you like to play again? (yes/no)");
+            playAgain = input.next();    
+        }while(playAgain.equalsIgnoreCase("yes"));
+        System.out.println("You won " + winCounter+ " times");
+        System.out.println("You lost " + loseCounter+ " times");
+        System.out.println("See you");
+
+    }
+}
+
