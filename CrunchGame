@@ -249,7 +249,7 @@ public class CrunchGame
                     sleep(1000);
                     System.out.println("There are " + stickMulti + " sticks");
                     System.out.println();
-                    sleep(500);
+                    sleep(1000);
                     if(stickMulti%2==1){
                         remover = 2;
                         System.out.println("I'm going to remove 2 sticks!");
@@ -259,7 +259,7 @@ public class CrunchGame
                     }          
                     stickMulti -= remover;
                     turnChooser ++;
-                    sleep(1000);
+                    sleep(2000);
                     clearScreen();
                 }
             }
@@ -270,10 +270,10 @@ public class CrunchGame
                     sleep(1000);
                     System.out.println("This is what the board looks like!");
                     printSticks(stickMulti);
-                    sleep(500);
+                    sleep(1000);
                     System.out.println("There is " + stickMulti + " stick");
                     System.out.println();
-                    sleep(500);
+                    sleep(1000);
                     boolean val=true;
                     int removerChecker= 0;
                     do{
@@ -293,18 +293,18 @@ public class CrunchGame
                     }while(val);                    
                     stickMulti -= remover;
                     turnChooser ++;
-                    sleep(500);
+                    sleep(1000);
                     clearScreen();
                 }else if(turnChooser%2==0){
                     sleep(500);
                     System.out.println("My turn");
-                    sleep(500);
+                    sleep(1000);
                     System.out.println("This is what the board looks like!");
                     printSticks(stickMulti);
                     sleep(1000);
                     System.out.println("There is " + stickMulti + " stick");
                     System.out.println();
-                    sleep(500);
+                    sleep(1000);
                     if(stickMulti%2==1){
                         remover = 2;
                         System.out.println("I'm going to remove 1 stick!");
