@@ -27,6 +27,10 @@ public class Fraction
         //all these create the fraction 0/1
     }
     
+    public String toString(){
+        return (num + "/" + denom);
+    }
+    
     //Constructor #2 - creates the fraction num/1
     public Fraction(int num)
     {
