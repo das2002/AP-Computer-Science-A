@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Elevator
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Elevator\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=levelMaxInput\ passengerMaxInput
+comment1.target=Elevator(int,\ int)
+comment2.params=passengers
+comment2.target=boolean\ loadPassengers(int)
+comment3.params=passengersLeaving
+comment3.target=boolean\ unloadPassengers(int)
+comment4.params=targetLevel
+comment4.target=boolean\ moveToFloor(int)
+comment5.params=
+comment5.target=int\ getNumberOfPassengers()
+comment6.params=
+comment6.target=int\ getCurrentFloor()
+numComments=7
