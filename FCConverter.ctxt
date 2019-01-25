@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=FCConverter
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ FCConverter\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=FCConverter()
+comment2.params=degrees
+comment2.target=boolean\ setFahrenheit(double)
+comment3.params=
+comment3.target=double\ getCelsius()
+comment4.params=
+comment4.target=double\ getFahrenheit()
+comment5.params=degrees
+comment5.target=boolean\ setCelsius(double)
+numComments=6

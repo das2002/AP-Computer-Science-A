@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Fraction
+comment0.text=\r\n\r\n\ \ Write\ a\ description\ of\ class\ Fraction\ here.\r\n\r\n\r\n\r\n\ \ @author\ Pratyush\ Das\r\n\r\n\ \ @version\ 1/23/19\r\n\r\n
+comment1.params=
+comment1.target=java.lang.String\ toString()
+comment1.text=public\ Fraction()\r\n\r\n\ \ \ \ {\r\n\r\n\ \ \ \ \ \ \ \ num\ \=\ 0;\r\n\r\n\ \ \ \ \ \ \ \ denom\ \=\ 1;\r\n\r\n\ \ \ \ \ \ \ \ //could\ also\ have\r\n\r\n\ \ \ \ \ \ \ \ //this.num\ \=\ 0;\r\n\r\n\ \ \ \ \ \ \ \ //this.denom\ \=\ 1;\r\n\r\n\ \ \ \ \ \ \ \ \r\n\r\n\ \ \ \ \ \ \ \ //or\ could\ have\r\n\r\n\ \ \ \ \ \ \ \ //this(0,1);\ <--calling\ constructor\ \#3\r\n\r\n\ \ \ \ \ \ \ \ //or\r\n\r\n\ \ \ \ \ \ \ \ //this(0);<--\ calling\ constructor\ \#2\r\n\r\n\ \ \ \ \ \ \ \ //all\ these\ create\ the\ fraction\ 0/1\r\n\r\n}
+comment2.params=num\ denom
+comment2.target=Fraction(int,\ int)
+comment2.text=public\ Fraction(int\ num)\r\n\r\n\ \ \ \ {\r\n\r\n\ \ \ \ \ \ \ \ this.num\ \=\ num;\r\n\r\n\ \ \ \ \ \ \ \ this.denom\ \=\ 1;\r\n\r\n}
+comment3.params=
+comment3.target=Fraction()
+comment4.params=num
+comment4.target=Fraction(int)
+comment5.params=input
+comment5.target=Fraction(Fraction)
+comment6.params=
+comment6.target=void\ reduce()
+comment7.params=n\ d
+comment7.target=int\ gcf(int,\ int)
+numComments=8
