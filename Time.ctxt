@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=Time
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Time\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=hoursInput\ minsInput
+comment1.target=Time(int,\ int)
+comment2.params=
+comment2.target=int\ toMins()
+comment3.params=timeVal
+comment3.target=boolean\ lessThan(Time)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment5.params=timeVal
+comment5.target=int\ elapsedSince(Time)
+numComments=6
